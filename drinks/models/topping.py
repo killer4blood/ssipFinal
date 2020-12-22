@@ -6,5 +6,5 @@ class Topping(models.Model):
     class Meta:
         app_label = 'drinks'
 
-    def__str__(self):
+    def __str__(self):
         return f'{self.name}'
