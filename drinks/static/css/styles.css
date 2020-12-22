@@ -1,12 +1,90 @@
 body
 {
-	background-color: #fff4d1;
-	/*background-color: plum;*/
+	background-color: #c1f3d6;
+	/*background-color: #ffe9ec;*/
 }
 
-.logo
+.top
 {
-	width: 12.5%;
-	left: 10%;
-	top: 50%;
+	background-color: #fff4d1;
+	position: absolute;
+	top:0;
+	left:0;
+	height: 20%;
+	width: 100%;
+}
+
+a:link
+{
+	color: #0a589d;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:visited
+{
+	color: #0a589d;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #3a973c;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+#button_container
+{
+	/*background-color: plum;*/
+	position: absolute;
+	top: 6%;
+	left: 0%;
+	width: 100%;
+	height: 8%;
+}
+
+.button
+{
+	background: none;
+	border: none;
+	font-size: 25px;
+	font-family: Berlin Sans FB;
+	position: absolute;
+	width:20%;
+	height:100%;
+}
+
+.button:nth-child(1)
+{
+	top:0;
+	left:0;
+}
+
+.button:nth-child(2)
+{
+	top:0;
+	left:20%;
+}
+
+.button:nth-child(3)
+{
+	top:0;
+	left:60%;
+}
+
+.button:nth-child(4)
+{
+	top:0;
+	left:80%;
+}
+
+#content
+{
+	background-color: plum;
+	position: absolute;
+	top: 27%;
+	left: 7%;
+	font-size: 20px;
 }
