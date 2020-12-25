@@ -1,9 +1,11 @@
-from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static 
+from django.urls import path
+from drinks.controllers import ice_controller, size_controller,splash_controller,sugar_controller, topping_controller,temperature_controller
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('drinks.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', splash_controller.index, name='splash_index'),
+    path('ice', ice_controller.index, name='ice_index'),
+    path('sugar', sugar_controller.index, name='sugar_index'),
+    path('size', size_controller.index, name='size_index'),
+    path('topping', topping_controller.index, name='topping_index'),
+    path('temperature', temperature_controller.index, name='temperature_index'),
+]
