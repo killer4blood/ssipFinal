@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>
+    Our Drinks
+</title>
+{% endblock %}
+
+{% block content %}
+<div class="col-12">
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Temperature</td>
+                <td>Topping Options</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for splash in splashes %}
+            <tr>
+                <td>{{ splash }}</td>
+                <td>{{ splash.temperature }}</td>
+                <td>{{ splash.toppings.all|join:', ' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form method="post" action="">
+        {% csrf_token %}
+        <input name="name" type="text"/>
+        <button type="submit">Search</button>
+    </form>
+</div>
+{% endblock %}
+
