@@ -82,9 +82,11 @@ a:hover
 
 #content
 {
+	border-style: dotted;
 	background-color: plum;
 	position: absolute;
 	top: 27%;
 	left: 7%;
 	font-size: 20px;
+
 }
