@@ -4,12 +4,24 @@ from drinks.models.ourdrinks import ourDrinks
 
 
 def index(request):
-    ourdrinks = ourDrinks.objects.all()
-    paginator = Paginator(ourdrinks, 4)  
 
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    if request.method == 'POST':
+        req = request.POST.dict()
+        name = req['name']
+        ourdrinks = ourDrinks.objects.filter(name__contains=name)
+        paginator = Paginator(ourdrinks, 4)  
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        data = {
+        'page_obj': page_obj,
+        }
+    else :
+        ourdrinks = ourDrinks.objects.all()
+        paginator = Paginator(ourdrinks, 4)  
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        
     data = {
         'page_obj': page_obj,
-    }
-    return render(request, 'ourdrinks/index.html', data)
+        }
+    return render(request, 'ourdrinks/index.html', context=data)

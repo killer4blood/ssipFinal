@@ -1,20 +1,21 @@
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
-# we import the models here, usually only one model
-from drinks.models.splash import Splash
-
+from drinks.forms import makeyourownForm
 
 def index(request):
     if request.method == 'POST':
-        req = request.POST.dict()
-        # POST, get the request body parameter and filter the drink
-        name = req['name']
-        splashes = Splash.objects.filter(name__contains=name)
+        form = makeyourownForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('checkout'))
     else:
-        splashes = Splash.objects.all()  # get all splashes
-    # put in data dictionary
+        form = makeyourownForm()
+        
     context = {
-        'splashes': splashes,
+        'form': form
     }
-    # render to our html
-    return render(request, 'splash/index.html', context=context)
+    return render(request, 'makeyourown_form.html', context=context)
 
+def checkout(request):
+    return render (request, 'splash/checkout.html')

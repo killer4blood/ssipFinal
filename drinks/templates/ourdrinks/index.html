@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for ourDrinks in ourdrinks %}
+            {% for ourDrinks in page_obj %}
             <tr>
                 <td>{{ ourDrinks }}</td>
                 <td>{{ ourDrinks.temperature }}</td>
@@ -26,12 +26,8 @@
             {% endfor %}
         </tbody>
     </table>
-    <form method="post" action="">
-        {% csrf_token %}
-        <input name="name" type="text"/>
-        <button type="submit">Search</button>
-    </form>
-    <div class="pagination">
+	
+	<div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
                 <a href="?page=1">&laquo; First</a>
@@ -48,6 +44,12 @@
             {% endif %}
         </span>
     </div>
+	
+    <form method="post" action="">
+        {% csrf_token %}
+        <input name="name" type="text"/>
+        <button type="submit">Search</button>
+    </form>
 </div>
 {% endblock %}
 

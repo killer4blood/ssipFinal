@@ -6,7 +6,7 @@
 	<title> Splash Drink Corner </title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-	<link rel="shortcut icon" href="cup.png">
+	<link rel="icon" href="{% static 'css/img/cup.ico' %}">
 	<link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,13 +15,13 @@
 <body>
 	<div class="top"></div>
 	
-	<img src="fruitSplash.png" width="13%" height="20%"
+	<img src="{% static 'css/img/fruitSplash.png' %}" width="13%" height="20%"
 	style="position:absolute ; top:0 ; left:43%"/>
 	
 	<div id="button_container">
 		<button class="button"><a href="{% url 'ourdrinks_list' %}"> OUR DRINKS </a></button>
 		<button class="button"><a href="{% url 'topping_list' %}"> TOPPINGS </a></button>
-		<button class="button"><a href="#"> MAKE YOUR OWN </a></button>
+		<button class="button"><a href="{% url 'makeyourown' %}"> MAKE YOUR OWN </a></button>
 		<button class="button"><a href="#"> LOGIN </a></button>
 	</div>
 	<div id="content"> {% block content %}{% endblock %} </div>
