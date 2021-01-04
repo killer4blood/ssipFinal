@@ -12,9 +12,7 @@ def index(request):
         paginator = Paginator(ourdrinks, 4)  
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
-        data = {
-        'page_obj': page_obj,
-        }
+        
     else :
         ourdrinks = ourDrinks.objects.all()
         paginator = Paginator(ourdrinks, 4)  
