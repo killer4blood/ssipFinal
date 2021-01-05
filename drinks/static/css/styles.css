@@ -90,3 +90,11 @@ a:hover
 	font-size: 20px;
 
 }
+#user
+{
+	background-color: skyblue;
+	position: center;
+	top: 50%;
+	left: 50%;
+	font-size: 50px;
+}

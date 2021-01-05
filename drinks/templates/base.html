@@ -14,6 +14,16 @@
 
 <body>
 	<div class="top"></div>
+	<div class="buttom">
+		{% if user.is_authenticated %}
+		Hello, {{ user.get_username }}
+		<a href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
+		{% else %}
+		{% if 'login' in request.path %}
+		<a href="{% url 'login' %}?next={{ '/' }}">Log In</a>
+		{% endif %}
+		{% endif %}
+	</div>
 	
 	<img src="{% static 'css/img/fruitSplash.png' %}" width="13%" height="20%"
 	style="position:absolute ; top:0 ; left:43%"/>
