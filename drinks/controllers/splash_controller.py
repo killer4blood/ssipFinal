@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.shortcuts import render
 from drinks.forms import makeyourownForm
 from django.contrib.auth.decorators import login_required
+
 @login_required
 def index(request):
     if request.method == 'POST':
