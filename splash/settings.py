@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'splash_finalproject',
         'USER': 'django',
-        'PASSWORD': '168168',
+        'PASSWORD': 'django',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -127,7 +127,9 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = '/'
 STATIC_URL = '/static/'
-
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, 'drinks/static/css'),
+]
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
