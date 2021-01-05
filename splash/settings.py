@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'splash_finalproject',
         'USER': 'django',
-        'PASSWORD': 'django',
+        'PASSWORD': '168168',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

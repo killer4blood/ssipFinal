@@ -22,12 +22,12 @@ def index(request):
             msg = ''  # empty message, no error, then send mail using configured EMAIL_HOST_USER
             send_mail(
                 'Registration Successful',
-                'You are now an official member of Splash!',
+                'You are now an official member of SPLASH DRINK CORNER!',
                 settings.EMAIL_HOST_USER,
                 [email],
                 fail_silently=True,
             )
-        return HttpResponseRedirect('accounts/login')  # show login page if successful
+        return HttpResponseRedirect('/accounts/login/')  # show login page if successful
     data = {
         'user_exists_error': msg,
     }
