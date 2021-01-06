@@ -40,7 +40,7 @@
 	<div id="button_container">
 		<button class="button"><a href="{% url 'ourdrinks_list' %}"> OUR DRINKS </a></button>
 		<button class="button"><a href="{% url 'topping_list' %}"> TOPPINGS </a></button>
-		<button class="button"><a href="#"> MAKE YOUR OWN </a></button>
+		<button class="button"><a href="{% url 'login' %}?next={{ request.path }}"> MAKE YOUR OWN </a></button>
 		<button class="button"><a href="{% url 'login' %}?next={{ request.path }}"> LOGIN </a></button>
 	</div>
 	{% endif %}
