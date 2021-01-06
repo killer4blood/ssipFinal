@@ -8,7 +8,7 @@ def index(request):
     if request.method == 'POST':
         req = request.POST.dict()
         name = req['name']
-        ourdrinks = ourDrinks.objects.filter(name__contains=name)
+        ourdrinks = ourDrinks.objects.filter(name__icontains=name)
         paginator = Paginator(ourdrinks, 4)  
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
