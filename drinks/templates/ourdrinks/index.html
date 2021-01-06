@@ -6,8 +6,17 @@
 </title>
 {% endblock %}
 
+
 {% block content %}
+
+<center>
+    {% if user.is_authenticated %}
+    Hello,  {{ user.get_username }}
+    {% endif %}
+</center>
+
 <div class="col-12">
+
     <table class="table table-sm table-bordered">
         <thead>
             <tr>
@@ -27,7 +36,7 @@
         </tbody>
     </table>
 	
-	<div class="pagination">
+	<div class="pagination" style=" font-size: medium; left:20%">
         <span class="step-links">
             {% if page_obj.has_previous %}
                 <a href="?page=1">&laquo; First</a>
@@ -45,11 +54,13 @@
         </span>
     </div>
 	
-    <form method="post" action="">
+    <form method="post" action="" style=" top:100% ; left:0%">
         {% csrf_token %}
         <input name="name" type="text"/>
         <button type="submit">Search</button>
     </form>
+
+    <a href="{% url 'logout' %}?next={{ request.path }}" style="position: absolute ; top:85% ; left:80%"> Log Out</a>
 </div>
 {% endblock %}
 

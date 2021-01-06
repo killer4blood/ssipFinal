@@ -14,19 +14,21 @@
 
 <body>
 	<div class="top">
+	</div>
+
+	<center>
 		{% if user.is_authenticated %}
 		Hello,  {{ user.get_username }}
-		<a href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
-		{% else %}
-		{% if 'login' in request.path %}
-		<a href="{% url 'login' %}?next={{ '/' }}">Log In</a>
+		<a href="{% url 'logout' %}?next={{ request.path }}"> Log Out</a>
 		{% endif %}
-		{% endif %}
-	</div>
+	</center>
+
 	
 	
+
 	<img src="{% static 'css/img/fruitSplash.png' %}" width="13%" height="20%"
-	style="position:absolute ; top:0 ; left:43%"/>
+	style="position: absolute ; top:0 ; left:43%">
+	
 	{% if user.is_authenticated %}
 	<div id="button_container">
 		<button class="button"><a href="{% url 'ourdrinks_list' %}"> OUR DRINKS </a></button>
