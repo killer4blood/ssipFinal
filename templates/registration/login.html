@@ -11,47 +11,79 @@
             <p>{{ user_exists_error }}</p>
             {% else %}
             <p>Your username and password didn't match. Please try again.</p>
+			<div class="row text-center">
+				<div class="col-12 text-center">
+					<form method="post" action="{% url 'login' %}">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-6 text-right">
+								{{ form.username.label_tag }}
+							</div>
+							<div class="col-6 text-left">
+								{{ form.username }}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6 text-right">
+								{{ form.password.label_tag }}
+							</div>
+							<div class="col-6 text-left">
+								{{ form.password }}
+							</div>
+						</div>
+						<input type="submit" value="login" />
+						<input type="hidden" name="next value="{{ next }} />
+					</form>
+					<p>
+					Don't have an account? <a href="{% url 'register' %}">Sign Up</a>
+					</p>
+				</div>
+			</div>
+			
+			
             {% endif %}
             {% endif %}
 
             {% if next %}
             {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-                please login with an account that has access.</p>
+            <p>Hello, {{ user.get_username }}, you are already logged in.</p>
+			<a href="{% url 'logout' %}?next={% url 'ourdrinks_list' %}"> Log Out</a>
+			
             {% else %}
             <p>Please login to see this page.</p>
+			
+			<div class="row text-center">
+				<div class="col-12 text-center">
+					<form method="post" action="{% url 'login' %}">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-6 text-right">
+								{{ form.username.label_tag }}
+							</div>
+							<div class="col-6 text-left">
+								{{ form.username }}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6 text-right">
+								{{ form.password.label_tag }}
+							</div>
+							<div class="col-6 text-left">
+								{{ form.password }}
+							</div>
+						</div>
+						<input type="submit" value="login" />
+						<input type="hidden" name="next value="{{ next }} />
+					</form>
+					<p>
+					Don't have an account? <a href="{% url 'register' %}">Sign Up</a>
+					</p>
+				</div>
+			</div>
+		</div>
             {% endif %}
             {% endif %}
         </div>
     </div>
 
-<div class="row text-center">
-        <div class="col-12 text-center">
-            <form method="post" action="{% url 'login' %}">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col-6 text-right">
-                        {{ form.username.label_tag }}
-                    </div>
-                    <div class="col-6 text-left">
-                        {{ form.username }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 text-right">
-                        {{ form.password.label_tag }}
-                    </div>
-                    <div class="col-6 text-left">
-                        {{ form.password }}
-                    </div>
-                </div>
-                <input type="submit" value="login" />
-                <input type="hidden" name="next value="{{ next }} />
-            </form>
-            <p>
-                Don't have an account? <a href="{% url 'register' %}">Sign Up</a>
-            </p>
-        </div>
-    </div>
-</div>
 {% endblock %}
