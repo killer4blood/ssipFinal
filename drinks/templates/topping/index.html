@@ -7,21 +7,17 @@
 {% endblock %}
 
 {% block content %}
-<div class="col-12">
-    <table class="table table-sm table-bordered">
-        <thead>
-            <tr>
-                <td> <center><u>Name</u></center></td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for topping in toppings %}
-            <tr>
-                <td>{{ topping.name }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="col-12">	
+	<table>
+		<tr>
+			<th> <center>Name</center> </th>
+		</tr>
+		{% for topping in toppings %}
+		<tr>
+			<td>{{ topping.name }}</td>
+		</tr>
+		{% endfor %}
+	</table>
 </div>
 {% endblock %}
 

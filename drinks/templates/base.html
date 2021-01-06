@@ -13,19 +13,8 @@
 </head>
 
 <body>
-	<div class="top">
-	</div>
-
-	<center>
-		{% if user.is_authenticated %}
-		Hello,  {{ user.get_username }}
-		<a href="{% url 'logout' %}?next={{ request.path }}"> Log Out</a>
-		{% endif %}
-	</center>
-
+	<div class="top"></div>
 	
-	
-
 	<img src="{% static 'css/img/fruitSplash.png' %}" width="13%" height="20%"
 	style="position: absolute ; top:0 ; left:43%">
 	

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Make Your Own</h1>
+<h1><center>Make Your Own</center></h1>
 
 <form action="" method="POST">
     {% csrf_token %}
@@ -10,6 +10,6 @@
         {{ form.as_table }}
     </table>
 	
-    <input type="submit" value="Order" class="btn btn-primary"/>
+    <input type="submit" value="Order"/>
 </form>
 {% endblock %}

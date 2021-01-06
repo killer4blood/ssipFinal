@@ -9,32 +9,22 @@
 
 {% block content %}
 
-<center>
-    {% if user.is_authenticated %}
-    Hello,  {{ user.get_username }}
-    {% endif %}
-</center>
-
 <div class="col-12">
-
-    <table class="table table-sm table-bordered">
-        <thead>
-            <tr>
-                <td>Name</td>
-                <td>Temperature</td>
-                <td>Topping Options</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for ourDrinks in page_obj %}
-            <tr>
-                <td>{{ ourDrinks }}</td>
-                <td>{{ ourDrinks.temperature }}</td>
-                <td>{{ ourDrinks.toppings.all|join:', ' }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+	
+	<table>
+		<tr>
+			<th style="width:50%"> Name </th>
+			<th> Temperature </th>
+			<th style="width:30%"> Topping Options </th>
+		</tr>
+		{% for ourDrinks in page_obj %}
+		<tr>
+			<td>{{ ourDrinks }}</td>
+            <td>{{ ourDrinks.temperature }}</td>
+            <td>{{ ourDrinks.toppings.all|join:', ' }}</td>
+		</tr>
+		{% endfor %}
+	</table>
 	
 	<div class="pagination" style=" font-size: medium; left:20%">
         <span class="step-links">
@@ -59,8 +49,6 @@
         <input name="name" type="text"/>
         <button type="submit">Search</button>
     </form>
-
-    <a href="{% url 'logout' %}?next={{ request.path }}" style="position: absolute ; top:85% ; left:80%"> Log Out</a>
 </div>
 {% endblock %}
 

@@ -90,9 +90,29 @@ a:hover
 #content
 {
 	position: absolute;
-	border-style: dotted;
-	position: center;
-	top: 30%;
-	left: 30%;
+	top: 27%;
+	left: 10%;
 	font-size: 20px;
+	width: 80%;
+	height: 50%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #000;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: plum;
+}
+
+tr:nth-child(even) {
+  background-color: #fff4d1;
 }
